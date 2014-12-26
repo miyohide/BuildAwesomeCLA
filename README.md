@@ -1,4 +1,11 @@
 # Build Awesome Command-Line Applications in Ruby2 読書ログ
+## 2014年12月26日（金）
+
+- オプションの実装は、`optparse`を使うと楽に書ける。
+- `optparse`の説明はるりま（http://docs.ruby-lang.org/ja/2.1.0/library/optparse.html）を参照。
+- P22では、userオプションの引数にとるUSERのvalidationを追加している。
+  - validationはファーストネーム + ピリオド（.） + ラストネームの形とする。
+
 ## 2014年12月23日（火）
 
 - db_backup.rbをより使いやすくするために、オプション解析機能をつける。
