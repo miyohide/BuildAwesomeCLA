@@ -1,4 +1,12 @@
 # Build Awesome Command-Line Applications in Ruby2 読書ログ
+## 2014年12月27日（土）
+
+- ここらでテストを書こうとしたけど、どうにもこうにも書きにくい。
+  - `optparse`の解析結果をテストしようとしたけど、どうやってテストを書けばいいか分からなかった。
+  - というわけで、ここでテストを書くのはやめ。
+- `opts.on("-u USER", /^.+\..+$/)`でオプションの引数の正規表現validationが可能。
+- これにマッチしない引数を指定すると、`invalid argument: -u hoge (OptionParser::InvalidArgument)`と出てくる。
+
 ## 2014年12月26日（金）
 
 - オプションの実装は、`optparse`を使うと楽に書ける。
