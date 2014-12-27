@@ -8,10 +8,15 @@ option_parser = OptionParser.new do |opts|
     options[:iteration] = true
   end
 
-  opts.on("-u USER") do |user|
-    unless user =~ /^.+\..+$/
-      raise ArgumentError, "USER must be in 'first.last' format"
-    end
+  # opts.on("-u USER") do |user|
+  #   unless user =~ /^.+\..+$/
+  #     raise ArgumentError, "USER must be in 'first.last' format"
+  #   end
+  #   options[:user] = user
+  # end
+
+  opts.on("-u USER",
+          /^.+\..+$/) do |user|
     options[:user] = user
   end
 
@@ -21,6 +26,9 @@ option_parser = OptionParser.new do |opts|
 end
 
 option_parser.parse!
+
+# puts options.inspect  # For debug.
+
 database = ARGV.shift
 username = options[:user]
 password = options[:password]
