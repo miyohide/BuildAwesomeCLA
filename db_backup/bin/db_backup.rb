@@ -23,6 +23,18 @@ option_parser = OptionParser.new do |opts|
   opts.on("-p PASSWORD") do |password|
     options[:password] = password
   end
+
+  # serversのKeyに設定した値しか受け付けないようにする
+  # --server devや--server qaなど。
+  # 仮に、--server aaaと指定した場合は、
+  # invalid argument: --server aaa (OptionParser::InvalidArgument)
+  # となる。
+  servers = { 'dev'  => '127.0.0.1',
+              'qa'   => 'qa001.example.com',
+              'prod' => 'www.example.com' }
+  opts.on('--server SERVER', servers) do |address|
+    options[:server] = address
+  end
 end
 
 option_parser.parse!
