@@ -4,23 +4,19 @@ require 'optparse'
 
 options = {}
 option_parser = OptionParser.new do |opts|
-  opts.on("-i", "--iteration") do
+  opts.on('-i', '--iteration',
+         'Indicate that this backup is an "iteration" backup') do
     options[:iteration] = true
   end
 
-  # opts.on("-u USER") do |user|
-  #   unless user =~ /^.+\..+$/
-  #     raise ArgumentError, "USER must be in 'first.last' format"
-  #   end
-  #   options[:user] = user
-  # end
-
-  opts.on("-u USER",
+  opts.on('-u USER',
+          'Database username, in first.last format',
           /^.+\..+$/) do |user|
     options[:user] = user
   end
 
-  opts.on("-p PASSWORD") do |password|
+  opts.on('-p PASSWORD',
+         'Database password') do |password|
     options[:password] = password
   end
 
