@@ -5,7 +5,11 @@ require 'optparse'
 options = {}
 option_parser = OptionParser.new do |opts|
   executable_name = File.basename($PROGRAM_NAME)
-  opts.banner = "Usage: #{executable_name} [options] database_name"
+  opts.banner = "Backup one or more MySQL databases
+
+Usage: #{executable_name} [options] database_name
+
+"
 
   opts.on('-i', '--iteration',
          'Indicate that this backup is an "iteration" backup') do
