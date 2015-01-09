@@ -41,7 +41,11 @@ Usage: #{executable_name} [options] database_name
 end
 
 option_parser.parse!
-
+if ARGV.empty?
+  puts "error: you must supply a database_name"
+  puts
+  puts option_parser.help
+end
 # puts options.inspect  # For debug.
 
 database = ARGV.shift
