@@ -1,4 +1,9 @@
 # Build Awesome Command-Line Applications in Ruby2 読書ログ
+## 2015年1月9日（金）
+
+- OptionParserは`parse!`メソッドを実行するとコマンドライン引数である`ARGV`を直接編集し、オプションのものは削除する。
+- OptionParserは定義していないオプションが指定された場合は、`parse!`の時点で例外を吐くので、`ARGV`に残るものはデータベース名だけだと考えてよいっぽい。
+
 ## 2015年1月8日（木）
 
 - `-h`メッセージにMySQLを対象としているということを明示する。そのためには`banner=`に設定する値を編集する。
