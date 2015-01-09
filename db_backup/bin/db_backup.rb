@@ -45,20 +45,20 @@ if ARGV.empty?
   puts "error: you must supply a database_name"
   puts
   puts option_parser.help
-end
-# puts options.inspect  # For debug.
-
-database = ARGV.shift
-username = options[:user]
-password = options[:password]
-end_if_iter = !!options[:iteration]
-
-if end_if_iter.nil?
-  backup_file = database + '_' + Time.now.strftime('%Y%m%d')
 else
-  backup_file = database + '_' + end_if_iter.to_s
+  # puts options.inspect  # For debug.
+
+  database = ARGV.shift
+  username = options[:user]
+  password = options[:password]
+  end_if_iter = !!options[:iteration]
+
+  if end_if_iter.nil?
+    backup_file = database + '_' + Time.now.strftime('%Y%m%d')
+  else
+    backup_file = database + '_' + end_if_iter.to_s
+  end
+
+  `mysqldump -u#{username} -p#{password} #{database} > #{backup_file}.sql`
+  `gzip #{backup_file}.sql`
 end
-
-`mysqldump -u#{username} -p#{password} #{database} > #{backup_file}.sql`
-`gzip #{backup_file}.sql`
-
