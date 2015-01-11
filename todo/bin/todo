@@ -18,18 +18,22 @@ version Todo::VERSION
 subcommand_option_handling :normal
 arguments :strict
 
-desc 'Describe some switch here'
-switch [:s,:switch]
+desc 'Path to the todo file'
+flag [:f, :filename]
 
-desc 'Describe some flag here'
-default_value 'the default'
-arg_name 'The name of the argument'
-flag :f
-
-desc 'Describe new here'
-arg_name 'Describe arguments to new here'
+desc 'Create a new task in the task list'
+long_desc "
+A task has a name and a priority. By default, new
+tasks have the lowest possible priority, though
+this can be overridden.
+"
+arg_name 'task_name'
 command :new do |c|
-  c.flag :priority
+  c.desc 'set the priority of the new task, 1 being the highest'
+  c.arg_name 'priority'
+  c.flag :p
+
+  c.desc 'put the new task first in the list'
   c.switch :f
 
   c.action do |global_options,options,args|
