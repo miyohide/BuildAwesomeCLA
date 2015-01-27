@@ -11,7 +11,7 @@ end
 
 include GLI::App
 
-program_desc 'Describe your application here'
+program_desc ' '
 
 version Todo::VERSION
 
@@ -46,7 +46,7 @@ command :new do |c|
   end
 end
 
-desc 'Describe list here'
+desc 'List tasks'
 arg_name 'Describe arguments to list here'
 command :list do |c|
   c.flag :s
@@ -62,7 +62,7 @@ command :list do |c|
   end
 end
 
-desc 'Describe done here'
+desc 'Complete a task'
 arg_name 'Describe arguments to done here'
 command :done do |c|
   c.action do |global_options,options,args|
