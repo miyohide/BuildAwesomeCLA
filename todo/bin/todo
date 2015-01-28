@@ -19,6 +19,8 @@ subcommand_option_handling :normal
 arguments :strict
 
 desc 'Path to the todo file'
+arg_name "todo_file"
+default_value "~/.todo.txt"
 flag [:f, :filename]
 
 desc 'Create a new task in the task list'
