@@ -1,4 +1,14 @@
 # Build Awesome Command-Line Applications in Ruby2 読書ログ
+"" 2015年1月28日（水）
+
+- 久しぶりの再開。多分、P38の「3.2 Documenting a Command Suite」から再開。
+- ヘルプメッセージの作り方について。今回はtodoアプリ。
+- todoアプリは、GLIというツールを使った。このGLIはヘルプメッセージも丁寧に作ってくれる。
+- 詳細は、P40から。`desc`には短めの説明、`long_desc`には長い説明ってな感じで記述していく。
+- P42には`arg_name`や`default_value`の設定が書かれている。
+  - ここを見ずに、前のソースコードだけで「あれ？default:のところがうまく表示されない」ってなっていろいろと探し回った。
+- 次は、P42の3.3 Including a Man Pageから。
+
 ## 2015年1月9日（金）
 
 - OptionParserは`parse!`メソッドを実行するとコマンドライン引数である`ARGV`を直接編集し、オプションのものは削除する。
