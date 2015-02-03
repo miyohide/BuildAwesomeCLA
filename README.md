@@ -1,4 +1,13 @@
 # Build Awesome Command-Line Applications in Ruby2 読書ログ
+## 2015年2月3日（火）
+
+- P47のWriting Good Help Text and Documentationから。
+- 良いヘルプテキストやドキュメントの書き方について。
+- usageの書き方とか、そもそもドキュメントに何を書くのかについて。
+- `GLI`で生成するとドキュメントはテンプレートとしてある程度生成されるので、それに沿って書けば良さそう。
+- P50とP51に書かれているTable2の内容をひと通り書く、つまりは、`ronn`で生成されるドキュメントに沿って書けば良さそう。
+- 次回は、第4章 Play Well with Others。
+
 ## 2015年2月1日（日）
 
 - P42の3.3 Including a Man Pageから。
