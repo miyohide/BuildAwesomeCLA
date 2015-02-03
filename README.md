@@ -1,5 +1,18 @@
 # Build Awesome Command-Line Applications in Ruby2 読書ログ
-"" 2015年1月28日（水）
+## 2015年2月1日（日）
+
+- P42の3.3 Including a Man Pageから。
+- manページを書くには、また独自のフォーマットを覚えなきゃいけないよなぁと思っていたら、Markdownからmanページのフォーマットに変換してくれるツールがGemで配布されているらしい。
+- ~~それが、[gem-man](https://github.com/defunkt/gem-man)。~~
+- P45でそのmanページの元になっているファイルを作成している。
+- 実際にmanページの生成については、P46に記載されている。
+- `man man/db_backup.1`って実行するとmanページが表示される。
+- って、ここまで書いて違うことに気がついた。
+- [gem-man](https://github.com/defunkt/gem-man)は、gemにman表示機能を追加する感じ。
+- Markdownからmanページのフォーマットに変換するのは[ronn](https://github.com/rtomayko/ronn)
+- 今日はここまで。次回はP47 3.4 Writing Good Help Text and Documentation
+
+## 2015年1月28日（水）
 
 - 久しぶりの再開。多分、P38の「3.2 Documenting a Command Suite」から再開。
 - ヘルプメッセージの作り方について。今回はtodoアプリ。
