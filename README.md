@@ -1,4 +1,12 @@
 # Build Awesome Command-Line Applications in Ruby2 読書ログ
+## 2015年2月8日（日）
+
+- 今日はP53。Chapter4のPlay Well with Othersから。他のものとうまく動くって感じかな。
+- 4.1ではUsing Exit Codes to Resport Success or Failure、終了コードによって成功か失敗かを報告することについて記してある。
+- 終了コード（終了ステータス）については、WikiPediaに[解説](http://ja.wikipedia.org/wiki/%E7%B5%82%E4%BA%86%E3%82%B9%E3%83%86%E3%83%BC%E3%82%BF%E3%82%B9)があるのでそれも合わせて読んでおく。
+- 慣例的に0が成功でそれ以外を失敗と考えれば良いかなと思う。
+- サンプルコードが付いているけど、これまでのものの流れが考慮されていない気がする。
+
 ## 2015年2月3日（火）
 
 - P47のWriting Good Help Text and Documentationから。
