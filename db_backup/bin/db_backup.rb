@@ -59,6 +59,10 @@ else
     backup_file = database + '_' + end_if_iter.to_s
   end
 
-  `mysqldump -u#{username} -p#{password} #{database} > #{backup_file}.sql`
-  `gzip #{backup_file}.sql`
+  auth = ""
+  auth += " -u#{username}" if username
+  auth += " -p#{password}" if password
+
+  command = "mysqldump #{auth} #{database} > #{backup_file}.sql && gzip #{backup_file}.sql"
+  system(command)
 end
