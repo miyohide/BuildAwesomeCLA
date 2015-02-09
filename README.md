@@ -1,4 +1,11 @@
 # Build Awesome Command-Line Applications in Ruby2 読書ログ
+## 2015年2月9日（月）
+
+- P55では戻り値を取るための方法が書かれている。`$?`で取れるんだけど、変数名としてはわかりにくいので、これを何とかしたい。
+- それを何とかするのが[English](http://docs.ruby-lang.org/ja/2.2.0/library/English.html)ライブラリ。
+  - 特殊変数に英語名の別名を付けてくれる。
+- 今回の戻り値の例で言えば、`$?`が`$CHILD_STATUS`となる。戻り値は、`exitstatus`で参照できる（[参考](http://docs.ruby-lang.org/ja/2.2.0/method/Kernel/v/=3f.html)）。
+
 ## 2015年2月8日（日）
 
 - 今日はP53。Chapter4のPlay Well with Othersから。他のものとうまく動くって感じかな。
