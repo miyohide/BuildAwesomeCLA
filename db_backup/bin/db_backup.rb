@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'optparse'
+require 'English'
 
 options = {}
 option_parser = OptionParser.new do |opts|
@@ -65,4 +66,8 @@ else
 
   command = "mysqldump #{auth} #{database} > #{backup_file}.sql && gzip #{backup_file}.sql"
   system(command)
+
+  unless $CHILD_STATUS.exitstatus == 0
+    puts "There was a problem running '#{command}'"
+  end
 end
