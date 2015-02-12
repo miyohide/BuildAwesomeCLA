@@ -69,5 +69,6 @@ else
 
   unless $CHILD_STATUS.exitstatus == 0
     puts "There was a problem running '#{command}'"
+    exit 1
   end
 end
