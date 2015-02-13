@@ -46,6 +46,7 @@ if ARGV.empty?
   puts "error: you must supply a database_name"
   puts
   puts option_parser.help
+  exit 2
 else
   # puts options.inspect  # For debug.
 
