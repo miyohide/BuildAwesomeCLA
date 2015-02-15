@@ -41,35 +41,42 @@ Usage: #{executable_name} [options] database_name
   end
 end
 
-option_parser.parse!
-if ARGV.empty?
-  puts "error: you must supply a database_name"
-  puts
-  puts option_parser.help
-  exit 2
-else
-  # puts options.inspect  # For debug.
-
-  database = ARGV.shift
-  username = options[:user]
-  password = options[:password]
-  end_if_iter = !!options[:iteration]
-
-  if end_if_iter.nil?
-    backup_file = database + '_' + Time.now.strftime('%Y%m%d')
-  else
-    backup_file = database + '_' + end_if_iter.to_s
+exit_status = 0
+begin
+  option_parser.parse!
+  if ARGV.empty?
+    puts "error: you must supply a database_name"
+    puts
+    puts option_parser.help
+    exit_status |= 0b0010
   end
-
-  auth = ""
-  auth += " -u#{username}" if username
-  auth += " -p#{password}" if password
-
-  command = "mysqldump #{auth} #{database} > #{backup_file}.sql && gzip #{backup_file}.sql"
-  system(command)
-
-  unless $CHILD_STATUS.exitstatus == 0
-    puts "There was a problem running '#{command}'"
-    exit 1
-  end
+rescue OptionParser::InvalidArgument => ex
+  puts ex.message
+  puts option_parser
+  exit_status |= 0b0001
 end
+exit exit_status unless exit_status == 0
+
+database = ARGV.shift
+username = options[:user]
+password = options[:password]
+end_if_iter = !!options[:iteration]
+
+if end_if_iter.nil?
+  backup_file = database + '_' + Time.now.strftime('%Y%m%d')
+else
+  backup_file = database + '_' + end_if_iter.to_s
+end
+
+auth = ""
+auth += " -u#{username}" if username
+auth += " -p#{password}" if password
+
+command = "mysqldump #{auth} #{database} > #{backup_file}.sql && gzip #{backup_file}.sql"
+system(command)
+
+unless $CHILD_STATUS.exitstatus == 0
+  puts "There was a problem running '#{command}'"
+  exit 1
+end
+
