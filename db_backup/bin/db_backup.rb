@@ -2,6 +2,7 @@
 
 require 'optparse'
 require 'English'
+require 'open3'
 
 options = {}
 option_parser = OptionParser.new do |opts|
@@ -73,10 +74,12 @@ auth += " -u#{username}" if username
 auth += " -p#{password}" if password
 
 command = "mysqldump #{auth} #{database} > #{backup_file}.sql && gzip #{backup_file}.sql"
-system(command)
+puts "Running '#{command}'"
+stdout_str, stderr_str, status = Open3.capture3(command)
 
-unless $CHILD_STATUS.exitstatus == 0
+unless status.exitstatus == 0
   puts "There was a problem running '#{command}'"
+  puts stderr_str
   exit 1
 end
 
