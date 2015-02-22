@@ -51,8 +51,19 @@ end
 desc 'List tasks'
 arg_name 'Describe arguments to list here'
 command :list do |c|
+
+  c.desc 'Format of the output'
+  c.arg_name 'csv|pretty'
+  c.default_value 'pretty'
+  c.flag :format
+
   c.flag :s
   c.action do |global_options,options,args|
+    if options[:format] == 'pretty'
+      # Use the pretty-print format
+    elsif options[:format] == 'csv'
+      # Use the machine-readable CSV format
+    end
     # TODO read_todosメソッドの実装
     todos = read_todos(global_options[:filename])
     if options[:s] == 'name'
