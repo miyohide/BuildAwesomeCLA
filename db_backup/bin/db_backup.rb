@@ -69,6 +69,13 @@ else
   backup_file = database + '_' + end_if_iter.to_s
 end
 
+# Signal.#trapはここに書いたからといって実行されるわけではない。
+# 登録するだけなので、問題なし
+Signal.trap("SIGINT") do
+  FileUtils.rm "#{backup_file}.sql"
+  exit 1
+end
+
 auth = ""
 auth += " -u#{username}" if username
 auth += " -p#{password}" if password
