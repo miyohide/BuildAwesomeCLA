@@ -13,18 +13,18 @@ Usage: #{executable_name} [options] database_name
 
 "
 
-  opts.on('-i', '--iteration',
+  opts.on('-i', '--end-of-iteration',
          'Indicate that this backup is an "iteration" backup') do
     options[:iteration] = true
   end
 
-  opts.on('-u USER',
+  opts.on('-u USER', "--username",
           'Database username, in first.last format',
           /^.+\..+$/) do |user|
     options[:user] = user
   end
 
-  opts.on('-p PASSWORD',
+  opts.on('-p PASSWORD', "--password",
          'Database password') do |password|
     options[:password] = password
   end
