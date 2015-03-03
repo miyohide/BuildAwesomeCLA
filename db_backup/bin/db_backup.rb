@@ -4,7 +4,10 @@ require 'optparse'
 require 'English'
 require 'open3'
 
-options = {}
+options = {
+  gzip: true
+}
+
 option_parser = OptionParser.new do |opts|
   executable_name = File.basename($PROGRAM_NAME)
   opts.banner = "Backup one or more MySQL databases
@@ -27,6 +30,10 @@ Usage: #{executable_name} [options] database_name
   opts.on('-p PASSWORD', "--password",
          'Database password') do |password|
     options[:password] = password
+  end
+
+  opts.on("--no-gzip", "Do not compress the backup file") do
+    options[:gzip] = false
   end
 
   # serversのKeyに設定した値しか受け付けないようにする
