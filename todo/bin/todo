@@ -50,7 +50,7 @@ end
 
 desc 'List tasks'
 arg_name 'Describe arguments to list here'
-command :list do |c|
+command [:list, :ls] do |c|
 
   c.desc 'Format of the output'
   c.arg_name 'csv|pretty'
